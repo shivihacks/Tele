@@ -1,0 +1,27 @@
+services:
+  - type: web
+    name: telegram-quiz-bot
+    runtime: python
+    plan: free            # free = SQLite data is wiped on every restart/redeploy (see README)
+    buildCommand: pip install -r requirements.txt
+    startCommand: python main.py
+    envVars:
+      - key: BOT_TOKEN
+        sync: false       # enter in the Render dashboard
+      - key: ADMIN_ID
+        sync: false       # enter in the Render dashboard
+      - key: PYTHON_VERSION
+        value: 3.12.3
+      - key: QUIZ_LENGTH
+        value: "5"
+      - key: QUESTION_TIME
+        value: "20"
+      - key: DB_PATH
+        value: quiz_bot.db
+
+    # ── To KEEP data permanently: switch to a paid plan, set DB_PATH=/var/data/quiz_bot.db
+    #    and uncomment the lines below (and change `plan: free` to `plan: starter`).
+    # disk:
+    #   name: quiz-data
+    #   mountPath: /var/data
+    #   sizeGB: 1
