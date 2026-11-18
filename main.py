@@ -1,6 +1,6 @@
 """Telegram Quiz Bot (python-telegram-bot v21, SQLite, Render-ready).
 
-Secrets come only from environment variables: BOT_TOKEN, ADMIN_ID.
+Secrets come only from environment variables: 9012700166:AAFjyg8pVtLw3ldPfYTqrdTfQ7YDd9rbNBQ, 8868098176.
 """
 import asyncio
 import hashlib
